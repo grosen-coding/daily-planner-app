@@ -25,22 +25,34 @@ const {
   deleteReminder,
 } = require("../controllers/remindersController");
 
-// Reminders
+const { protect } = require("../middleware/authMiddleware");
 
 // NOTES
-router.route("/notes").get(getNotes).post(setNote);
-router.route("/notes/:id").delete(deleteNote).put(updateNote);
+router.route("/notes").get(protect, getNotes).post(protect, setNote);
+router.route("/notes/:id").delete(protect, deleteNote).put(protect, updateNote);
 
 // TO DO
-router.route("/todos").get(getTodos).post(setTodo);
-router.route("/todos/:id").delete(deleteTodo).put(updateTodo);
+router.route("/todos").get(protect, getTodos).post(protect, setTodo);
+router.route("/todos/:id").delete(protect, deleteTodo).put(protect, updateTodo);
 
 // PRIORITIES
-router.route("/priorities").get(getPriorities).post(setPriority);
-router.route("/priorities/:id").delete(deletePriority).put(updatePriority);
+router
+  .route("/priorities")
+  .get(protect, getPriorities)
+  .post(protect, setPriority);
+router
+  .route("/priorities/:id")
+  .delete(protect, deletePriority)
+  .put(protect, updatePriority);
 
 // REMINDERS
-router.route("/reminders").get(getReminders).post(setReminder);
-router.route("/reminders/:id").delete(deleteReminder).put(updateReminder);
+router
+  .route("/reminders")
+  .get(protect, getReminders)
+  .post(protect, setReminder);
+router
+  .route("/reminders/:id")
+  .delete(protect, deleteReminder)
+  .put(protect, updateReminder);
 
 module.exports = router;

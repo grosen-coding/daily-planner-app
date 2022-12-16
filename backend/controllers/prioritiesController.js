@@ -1,12 +1,13 @@
 const asyncHandler = require("express-async-handler");
 
 const Priorities = require("../models/noteModel");
+const User = require("../models/userModel");
 
 // @desc    Get Priorities
 // @route   GET /api/planner/priorities
 // @access  Private
 const getPriorities = asyncHandler(async (req, res) => {
-  const priorities = await Priorities.find();
+  const priorities = await Priorities.find({ user: req.user.id });
 
   res.status(200).json(priorities);
 });
@@ -22,6 +23,7 @@ const setPriority = asyncHandler(async (req, res) => {
 
   const priority = await Priority.create({
     text: req.body.text,
+    user: req.user.id,
   });
 
   res.status(200).json(priority);
@@ -35,6 +37,20 @@ const updatePriority = asyncHandler(async (req, res) => {
   if (!priority) {
     res.status(400);
     throw new Error("Top Priority not found");
+  }
+
+  const user = await User.findById(req.user.id);
+
+  // Check is user exists
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Make sure logged in user matches note user
+  if (note.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
   }
 
   const updatedPriority = await Priority.findByIdAndUpdate(
@@ -56,6 +72,20 @@ const deletePriority = asyncHandler(async (req, res) => {
   if (!priority) {
     res.status(400);
     throw new Error("Top Priority not found");
+  }
+
+  const user = await User.findById(req.user.id);
+
+  // Check is user exists
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Make sure logged in user matches note user
+  if (note.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
   }
 
   await priority.remove();

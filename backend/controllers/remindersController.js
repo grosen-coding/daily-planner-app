@@ -6,7 +6,7 @@ const Reminders = require("../models/noteModel");
 // @route   GET /api/planner/reminders
 // @access  Private
 const getReminders = asyncHandler(async (req, res) => {
-  const reminders = await Reminders.find();
+  const reminders = await Reminders.find({ user: req.user.id });
 
   res.status(200).json(reminders);
 });
@@ -22,6 +22,7 @@ const setReminder = asyncHandler(async (req, res) => {
 
   const reminder = await Reminder.create({
     text: req.body.text,
+    user: req.user.id,
   });
 
   res.status(200).json(reminder);
@@ -35,6 +36,20 @@ const updateReminder = asyncHandler(async (req, res) => {
   if (!reminder) {
     res.status(400);
     throw new Error("Reminder not found");
+  }
+
+  const user = await User.findById(req.user.id);
+
+  // Check is user exists
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Make sure logged in user matches note user
+  if (note.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
   }
 
   const updatedReminder = await Reminder.findByIdAndUpdate(
@@ -56,6 +71,20 @@ const deleteReminder = asyncHandler(async (req, res) => {
   if (!reminder) {
     res.status(400);
     throw new Error("Reminder not found");
+  }
+
+  const user = await User.findById(req.user.id);
+
+  // Check is user exists
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // Make sure logged in user matches note user
+  if (note.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
   }
 
   await reminder.remove();
