@@ -9,6 +9,7 @@ const {
 
 // Priorities, Reminders, ToDo, Notes
 
+// NOTES
 router.route("/notes").get(getNotes).post(setNote);
 router.route("/notes/:id").delete(deleteNote).put(updateNote);
 
