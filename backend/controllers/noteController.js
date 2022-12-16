@@ -43,8 +43,8 @@ const updateNote = asyncHandler(async (req, res) => {
 
   res.status(200).json(updatedNote);
 });
-//  @desc    Get Notes
-//  @route   GET /api/planner/notes
+//  @desc    Delete Note
+//  @route   DELETE /api/planner/notes/:id
 //  @access  Private
 const deleteNote = asyncHandler(async (req, res) => {
   const note = await Note.findById(req.params.id);

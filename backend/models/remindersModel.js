@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const noteSchema = mongoose.Schema(
+const reminderSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -17,4 +17,4 @@ const noteSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Note", noteSchema);
+module.exports = mongoose.model("Reminder", todoSchema);
