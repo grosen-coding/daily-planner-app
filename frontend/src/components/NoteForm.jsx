@@ -1,31 +1,38 @@
-import { useState } from "react"
-import { useDispatch } from "react-redux"
-import {createNote} from '../features/notes/noteSlice'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createNote } from '../features/notes/noteSlice'
 
 function NoteForm() {
-    const [text, setText] = useState('')
+  const [text, setText] = useState('')
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    const onSubmit = (e) => {
-        e.preventDefault()
+  const onSubmit = (e) => {
+    e.preventDefault()
 
-        dispatch(createNote({text}))
-        setText('')
-    }
+    dispatch(createNote({ text }))
+    setText('')
+  }
 
   return (
-    <section>
-    <h1>Note Form</h1>
-    <form onSubmit={onSubmit}>
-        <div className="form-group">
-            <label htmlFor="text">Note</label>
-            <input type="text" name="text" id="text" value={text} onChange={(e) => setText(e.target.value)} />
+    <section className='form'>
+      <form onSubmit={onSubmit}>
+        <div className='form-group'>
+          <label htmlFor='text'>Note</label>
+          <input
+            type='text'
+            name='text'
+            id='text'
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
         </div>
-        <div className="form-group">
-            <button type="submit">Add Note</button>
+        <div className='form-group'>
+          <button className='btn btn-block' type='submit'>
+            Add Note
+          </button>
         </div>
-    </form>
+      </form>
     </section>
   )
 }
