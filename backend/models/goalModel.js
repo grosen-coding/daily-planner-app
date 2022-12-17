@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const noteSchema = mongoose.Schema(
+const goalSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -9,7 +9,7 @@ const noteSchema = mongoose.Schema(
     },
     text: {
       type: String,
-      required: [true, "Please add some text"],
+      required: [true, "Please add a text value"],
     },
   },
   {
@@ -17,4 +17,4 @@ const noteSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Note", noteSchema);
+module.exports = mongoose.model("Goal", goalSchema);
