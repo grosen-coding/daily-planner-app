@@ -92,14 +92,16 @@ h3 {
     gap: 10px;
 }
 
-.goal {
+.goal,
+.note {
     background-color: #f4f4f4;
     margin: 10px 0;
     padding: 20px 0 10px;
     position: relative;
 }
 
-.goal .close {
+.goal .close,
+.note .close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -107,6 +109,7 @@ h3 {
     border: none;
     background: none;
 }
+
 
 .form,
 .content {
