@@ -2,11 +2,12 @@
   "name": "daily-planner-app",
   "version": "1.0.0",
   "description": "Daily Planner App",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node backend/index.js",
-    "server": "nodemon backend/index.js",
-    "client": "npm start --prefix frontend"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Gary Rosen",
   "license": "MIT",
@@ -20,6 +21,7 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }
