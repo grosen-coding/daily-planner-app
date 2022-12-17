@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const prioritiesSchema = mongoose.Schema(
+const prioritySchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -9,7 +9,7 @@ const prioritiesSchema = mongoose.Schema(
     },
     text: {
       type: String,
-      required: [true, "Please add some text"],
+      required: [true, "Please add a text value"],
     },
   },
   {

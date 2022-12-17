@@ -5,9 +5,12 @@ import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
 import NoteForm from '../components/NoteForm'
 import NoteItem from '../components/NoteItem'
+import PriorityForm from '../components/PriorityForm'
+import PriorityItem from '../components/PriorityItem'
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
 import { getNotes } from '../features/notes/noteSlice'
+import { getPriorities } from '../features/priorities/prioritySlice'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -19,6 +22,9 @@ function Dashboard() {
   )
   const { notes } = useSelector(
     (state) => state.notes
+  )
+  const { priorities } = useSelector(
+    (state) => state.priorities
   )
 
   useEffect(() => {
@@ -32,6 +38,7 @@ function Dashboard() {
 
     dispatch(getGoals())
     dispatch(getNotes())
+    dispatch(getPriorities())
 
     return () => {
       dispatch(reset())
@@ -46,12 +53,12 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        <p>Planner Dashboard</p>
       </section>
 
       <GoalForm />
 
-      <NoteForm />
+
 
       <section className='content'>
         <h2>Goals</h2>
@@ -66,6 +73,8 @@ function Dashboard() {
         )}
       </section>
 
+      <NoteForm />
+
       <section className='content'>
         <h2>Notes</h2>
         {notes.length > 0 ? (
@@ -79,16 +88,18 @@ function Dashboard() {
         )}
       </section>
 
+          <PriorityForm />
+
       <section className='content'>
-        <h2>Reminders</h2>
-        {goals.length > 0 ? (
+        <h2>Priorities</h2>
+        {priorities.length > 0 ? (
           <div className='goals'>
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
+            {priorities.map((priority) => (
+              <PriorityItem key={priority._id} priority={priority} />
             ))}
           </div>
         ) : (
-          <h3>You have not set any goals</h3>
+          <h3>You have not set any top priorities</h3>
         )}
       </section>
             <section className='content'>
