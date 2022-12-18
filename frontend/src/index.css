@@ -28,6 +28,7 @@ li {
     line-height: 2.2;
 }
 
+
 h1,
 h2,
 h3 {
@@ -196,6 +197,10 @@ h3 {
     border-color: #000 transparent #555 transparent;
     border-radius: 50%;
     animation: spin 1.2s linear infinite;
+}
+
+section {
+    margin-top: 20px;
 }
 
 @keyframes spin {

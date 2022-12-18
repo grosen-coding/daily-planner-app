@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/goals", require("./routes/goalRoutes"));
 app.use("/api/reminders", require("./routes/reminderRoutes"));
+app.use("/api/todos", require("./routes/todoRoutes"));
 app.use("/api/notes", require("./routes/noteRoutes"));
 app.use("/api/priorities", require("./routes/priorityRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));

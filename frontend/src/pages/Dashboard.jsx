@@ -5,6 +5,8 @@ import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
 import ReminderItem from '../components/ReminderItem'
 import ReminderForm from '../components/ReminderForm'
+import TodoItem from '../components/TodoItem'
+import TodoForm from '../components/TodoForm'
 import NoteForm from '../components/NoteForm'
 import NoteItem from '../components/NoteItem'
 import PriorityForm from '../components/PriorityForm'
@@ -14,6 +16,7 @@ import { getGoals, reset } from '../features/goals/goalSlice'
 import { getNotes } from '../features/notes/noteSlice'
 import { getPriorities } from '../features/priorities/prioritySlice'
 import { getReminders } from '../features/reminders/reminderSlice'
+import { getTodos } from '../features/todos/todoSlice'
 
 
 function Dashboard() {
@@ -26,6 +29,9 @@ function Dashboard() {
   )
   const { reminders } = useSelector(
     (state) => state.reminders
+  )
+    const { todos } = useSelector(
+    (state) => state.todos
   )
   const { notes } = useSelector(
     (state) => state.notes
@@ -45,6 +51,8 @@ function Dashboard() {
     }
 
     dispatch(getGoals())
+    dispatch(getReminders())
+    dispatch(getTodos())
     dispatch(getNotes())
     dispatch(getPriorities())
 
@@ -92,6 +100,21 @@ function Dashboard() {
           </div>
         ) : (
           <h3>You have not set any goals</h3>
+        )}
+      </section>
+
+                  <TodoForm />
+
+      <section className='content'>
+        <h2>To-do List</h2>
+        {todos.length > 0 ? (
+          <div className='goals'>
+            {todos.map((todo) => (
+              <TodoItem key={todo._id} todo={todo} />
+            ))}
+          </div>
+        ) : (
+          <h3>You have not set any to-dos</h3>
         )}
       </section>
 

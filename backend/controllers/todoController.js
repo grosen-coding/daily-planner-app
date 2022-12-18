@@ -46,8 +46,8 @@ const updateTodo = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  // Make sure logged in user matches note user
-  if (note.user.toString() !== user.id) {
+  // Make sure logged in user matches to-do user
+  if (todo.user.toString() !== user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
@@ -77,8 +77,8 @@ const deleteTodo = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 
-  // Make sure logged in user matches note user
-  if (note.user.toString() !== user.id) {
+  // Make sure logged in user matches to-do user
+  if (todo.user.toString() !== user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
