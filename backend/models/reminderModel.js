@@ -9,7 +9,7 @@ const reminderSchema = mongoose.Schema(
     },
     text: {
       type: String,
-      required: [true, "Please add some text"],
+      required: [true, "Please add a text value"],
     },
   },
   {
@@ -17,4 +17,4 @@ const reminderSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Reminder", todoSchema);
+module.exports = mongoose.model("Reminder", reminderSchema);

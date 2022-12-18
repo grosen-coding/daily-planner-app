@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
+import ReminderItem from '../components/ReminderItem'
+import ReminderForm from '../components/ReminderForm'
 import NoteForm from '../components/NoteForm'
 import NoteItem from '../components/NoteItem'
 import PriorityForm from '../components/PriorityForm'
@@ -11,6 +13,8 @@ import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
 import { getNotes } from '../features/notes/noteSlice'
 import { getPriorities } from '../features/priorities/prioritySlice'
+import { getReminders } from '../features/reminders/reminderSlice'
+
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -20,12 +24,16 @@ function Dashboard() {
   const { goals, isLoading, isError, message } = useSelector(
     (state) => state.goals
   )
+  const { reminders } = useSelector(
+    (state) => state.reminders
+  )
   const { notes } = useSelector(
     (state) => state.notes
   )
   const { priorities } = useSelector(
     (state) => state.priorities
   )
+
 
   useEffect(() => {
     if (isError) {
@@ -39,6 +47,7 @@ function Dashboard() {
     dispatch(getGoals())
     dispatch(getNotes())
     dispatch(getPriorities())
+
 
     return () => {
       dispatch(reset())
@@ -58,14 +67,27 @@ function Dashboard() {
 
       <GoalForm />
 
-
-
       <section className='content'>
         <h2>Goals</h2>
         {goals.length > 0 ? (
           <div className='goals'>
             {goals.map((goal) => (
               <GoalItem key={goal._id} goal={goal} />
+            ))}
+          </div>
+        ) : (
+          <h3>You have not set any goals</h3>
+        )}
+      </section>
+
+            <ReminderForm />
+
+      <section className='content'>
+        <h2>Reminders</h2>
+        {reminders.length > 0 ? (
+          <div className='goals'>
+            {reminders.map((reminder) => (
+              <ReminderItem key={reminder._id} reminder={reminder} />
             ))}
           </div>
         ) : (
@@ -102,18 +124,7 @@ function Dashboard() {
           <h3>You have not set any top priorities</h3>
         )}
       </section>
-            <section className='content'>
-        <h2>To Do</h2>
-        {goals.length > 0 ? (
-          <div className='goals'>
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any goals</h3>
-        )}
-      </section>
+
     </>
   )
 }
