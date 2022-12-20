@@ -177,7 +177,7 @@ h4 {
 /* BUTTONS */
 .btn {
     padding: 10px 20px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     border-radius: 15px;
     background: #6F204D;
     color: #E3E3E3;
@@ -186,14 +186,27 @@ h4 {
     font-weight: 700;
     cursor: pointer;
     text-align: center;
-    appearance: button;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+
+}
+
+.btn-add-task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
 }
 
 .btn svg {
     margin-right: 8px;
+}
+
+.btn-add-task svg {
+    margin-right: 0;
+    font-size: 1.5rem;
 }
 
 .btn-reverse {
@@ -207,7 +220,8 @@ h4 {
 }
 
 .btn:hover {
-    transform: scale(0.98);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 /* ANIMATIONS */

@@ -18,7 +18,7 @@ function Header() {
 
     <header className='header'>
       {user ? (
-            <button className='btn'>
+            <button className='btn btn-add-task'>
               <FaPlusCircle /> 
             </button>
         ) : (
