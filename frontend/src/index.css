@@ -58,10 +58,10 @@ h2 {
     color: #6F204D;
     background-color: #B38FFB;
     max-width: 1400px;
-    margin: 20px auto;
+    margin: auto;
     padding: 0 20px;
     text-align: center;
-    height: calc(100vh - 90px);
+    height: 100vh;
     /* padding-bottom: 100px; */
 }
 
@@ -103,12 +103,12 @@ h2 {
 
 .tasks-container {
     width: 100%;
+    /* height: 100%; */
+    height: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
-
-.task-item {
-    height: ;
+    gap: 10px;
+    padding: 20px 0;
 }
 
 .task {
@@ -140,10 +140,19 @@ h2 {
 .task-card {
     width: 100%;
     background-color: #E3E3E3;
-    margin: 5px auto;
+    /* margin: 5px auto; */
     border: 2px solid #6F204D;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
+}
+
+.task-card:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 1 /3;
+}
+
+.task-card:nth-of-type(4) {
+    grid-column: 1 / 3;
 }
 
 .form-group {
@@ -170,9 +179,10 @@ h2 {
 .btn {
     padding: 10px 20px;
     border: 1px solid #000;
-    border-radius: 5px;
-    background: #000;
-    color: #fff;
+    border-radius: 15px;
+    background: #6F204D;
+    color: #E3E3E3;
+    text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
@@ -221,10 +231,6 @@ h2 {
     border-color: #000 transparent #555 transparent;
     border-radius: 50%;
     animation: spin 1.2s linear infinite;
-}
-
-section {
-    margin-top: 20px;
 }
 
 @keyframes spin {

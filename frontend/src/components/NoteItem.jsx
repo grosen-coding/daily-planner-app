@@ -5,7 +5,7 @@ function NoteItem({ note }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='task'>
+    <div className='task note'>
       <h4>{note.text} 
         <span>{new Date(note.createdAt).toLocaleString('en-US')}</span>
       </h4>
