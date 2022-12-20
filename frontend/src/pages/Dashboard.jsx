@@ -68,15 +68,10 @@ function Dashboard() {
 
   return (
     <>
-      <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <p>Planner Dashboard</p>
-      </section>
-
-      <GoalForm />
-
-      <section className='content'>
+      <section className='tasks-container'>
+      {/* <div className='content'>
         <h2>Goals</h2>
+      <GoalForm />
         {goals.length > 0 ? (
           <div className='goals'>
             {goals.map((goal) => (
@@ -86,14 +81,27 @@ function Dashboard() {
         ) : (
           <h3>You have not set any goals</h3>
         )}
-      </section>
+      </div> */}
 
-            <ReminderForm />
+      <div className='task-card'>
+          <h2>Top Priorities</h2>
+          {/* <PriorityForm /> */}
+          {priorities.length > 0 ? (
+            <div className='task-item'>
+              {priorities.map((priority) => (
+                <PriorityItem key={priority._id} priority={priority} />
+              ))}
+            </div>
+        ) : (
+          <h3>You have not set any top priorities</h3>
+        )}
+      </div>
 
-      <section className='content'>
+      <div className='task-card'>
         <h2>Reminders</h2>
+  {/* <ReminderForm /> */}
         {reminders.length > 0 ? (
-          <div className='goals'>
+          <div className='task-item'>
             {reminders.map((reminder) => (
               <ReminderItem key={reminder._id} reminder={reminder} />
             ))}
@@ -101,14 +109,16 @@ function Dashboard() {
         ) : (
           <h3>You have not set any goals</h3>
         )}
-      </section>
+      </div>
 
-                  <TodoForm />
 
-      <section className='content'>
+
+
+            <div className='task-card'>
         <h2>To-do List</h2>
+    {/* <TodoForm /> */}
         {todos.length > 0 ? (
-          <div className='goals'>
+          <div className='task-item'>
             {todos.map((todo) => (
               <TodoItem key={todo._id} todo={todo} />
             ))}
@@ -116,14 +126,13 @@ function Dashboard() {
         ) : (
           <h3>You have not set any to-dos</h3>
         )}
-      </section>
+      </div>
 
-      <NoteForm />
-
-      <section className='content'>
+      <div className='task-card'>
         <h2>Notes</h2>
+      {/* <NoteForm /> */}
         {notes.length > 0 ? (
-          <div className='goals'>
+          <div className='task-item'>
             {notes.map((note) => (
               <NoteItem key={note._id} note={note} />
             ))}
@@ -131,21 +140,8 @@ function Dashboard() {
         ) : (
           <h3>You have not set any notes</h3>
         )}
-      </section>
+      </div>
 
-          <PriorityForm />
-
-      <section className='content'>
-        <h2>Priorities</h2>
-        {priorities.length > 0 ? (
-          <div className='goals'>
-            {priorities.map((priority) => (
-              <PriorityItem key={priority._id} priority={priority} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any top priorities</h3>
-        )}
       </section>
 
     </>

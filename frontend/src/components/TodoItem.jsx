@@ -5,9 +5,8 @@ function TodoItem({ todo }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='goal'>
-      <div>{new Date(todo.createdAt).toLocaleString('en-US')}</div>
-      <h2>{todo.text}</h2>
+    <div className='task'>
+      <h4>{todo.text} <span>{new Date(todo.createdAt).toLocaleString('en-US')}</span></h4>
       <button onClick={() => dispatch(deleteTodo(todo._id))} className='close'>
         X
       </button>

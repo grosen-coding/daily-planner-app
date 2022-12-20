@@ -5,9 +5,10 @@ function NoteItem({ note }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='note'>
-      <div>{new Date(note.createdAt).toLocaleString('en-US')}</div>
-      <h2>{note.text}</h2>
+    <div className='task'>
+      <h4>{note.text} 
+        <span>{new Date(note.createdAt).toLocaleString('en-US')}</span>
+      </h4>
       <button onClick={() => dispatch(deleteNote(note._id))} className='close'>
         X
       </button>

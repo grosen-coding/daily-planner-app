@@ -5,9 +5,9 @@ function PriorityItem({ priority }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='priority'>
-      <div>{new Date(priority.createdAt).toLocaleString('en-US')}</div>
-      <h2>{priority.text}</h2>
+    <div className='task'>
+      <div></div>
+      <h4>{priority.text} <span>{new Date(priority.createdAt).toLocaleString('en-US')}</span></h4>
       <button onClick={() => dispatch(deletePriority(priority._id))} className='close'>
         X
       </button>
