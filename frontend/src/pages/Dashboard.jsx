@@ -10,7 +10,7 @@ import NoteItem from '../components/NoteItem'
 import PriorityForm from '../components/PriorityForm'
 import PriorityItem from '../components/PriorityItem'
 import Spinner from '../components/Spinner'
-import { reset } from '../features/goals/goalSlice'
+import { getGoals, reset } from '../features/goals/goalSlice'
 import { getNotes } from '../features/notes/noteSlice'
 import { getPriorities } from '../features/priorities/prioritySlice'
 import { getReminders } from '../features/reminders/reminderSlice'
@@ -52,6 +52,7 @@ function Dashboard() {
     dispatch(getTodos())
     dispatch(getNotes())
     dispatch(getPriorities())
+    dispatch(getGoals())
 
     return () => {
       dispatch(reset())
