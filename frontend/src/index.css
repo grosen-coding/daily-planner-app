@@ -152,6 +152,50 @@ h4 {
     background: none;
 }
 
+/* LOGIN PAGE */
+.login-container {
+    margin: 50px auto;
+    width: 50%;
+
+}
+
+.login-heading {
+    padding: 30px;
+    font-size: 1.2rem;
+}
+
+.login-heading h1 {
+    margin: 40px 0;
+    font-weight: 600;
+}
+
+.login-register span {
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid #6F204D;
+
+}
+
+/* REGISTER PAGE */
+
+.register-container {
+    margin: 50px auto;
+    width: 50%;
+
+}
+
+.register-heading {
+    padding: 30px;
+    font-size: 1.2rem;
+}
+
+.register-heading h1 {
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+
 /* FORMS */
 .form-group {
     margin-bottom: 10px;
@@ -209,18 +253,13 @@ h4 {
     font-size: 1.5rem;
 }
 
-.btn-reverse {
-    background: #fff;
-    color: #000;
-}
-
 .btn-block {
     width: 100%;
     margin-bottom: 20px;
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: all 0.3s ease;
 }
 
