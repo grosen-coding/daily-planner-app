@@ -68,7 +68,7 @@ function Dashboard() {
 {/* TOP PRIORITIES LIST */}
         <div className='task-card'>
             <h2>Top Priorities</h2>
-            {/* <PriorityForm /> */}
+            <PriorityForm />
             {priorities.length > 0 ? (
               <ul className='task-items'>
                 {priorities.map((priority) => (
@@ -82,7 +82,7 @@ function Dashboard() {
 {/* REMINDERS LIST */}
         <div className='task-card'>
           <h2>Reminders</h2>
-          {/* <ReminderForm /> */}
+          <ReminderForm />
           {reminders.length > 0 ? (
             <ul className='task-items'>
               {reminders.map((reminder) => (
@@ -96,7 +96,7 @@ function Dashboard() {
 {/* TO DO LIST */}
         <div className='task-card'>
           <h2>To-do List</h2>
-          {/* <TodoForm /> */}
+          <TodoForm />
           {todos.length > 0 ? (
             <ul className='task-items'>
               {todos.map((todo) => (
@@ -110,7 +110,7 @@ function Dashboard() {
 {/* NOTES LIST */}
         <div className='task-card'>
           <h2>Notes</h2>
-          {/* <NoteForm /> */}
+          <NoteForm />
           {notes.length > 0 ? (
             <ul className='task-items'>
               {notes.map((note) => (

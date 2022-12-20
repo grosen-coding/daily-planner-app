@@ -46,12 +46,16 @@ function Header() {
           <>
             <li>
               <Link to='/login'>
-                <FaSignInAlt /> Login
+                <button className="btn btn-header">
+                Login
+                </button>
               </Link>
             </li>
             <li>
               <Link to='/register'>
-                <FaPlusCircle /> Register
+                <button className="btn btn-header">
+                Register
+                </button>
               </Link>
             </li>
           </>

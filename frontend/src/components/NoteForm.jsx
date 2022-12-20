@@ -15,7 +15,7 @@ function NoteForm() {
   }
 
   return (
-    <section className='form'>
+    <section className='task-form form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
           <label htmlFor='text'>Note</label>
