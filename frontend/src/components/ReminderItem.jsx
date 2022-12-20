@@ -1,16 +1,23 @@
 import { useDispatch } from 'react-redux'
 import { deleteReminder } from '../features/reminders/reminderSlice'
+import { FaTrashAlt } from 'react-icons/fa'
 
 function ReminderItem({ reminder }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='task'>
-      <h4>{reminder.text} <span>{new Date(reminder.createdAt).toLocaleString('en-US')}</span></h4>
-      <button onClick={() => dispatch(deleteReminder(reminder._id))} className='close'>
-        X
-      </button>
-    </div>
+    <li className='task'>
+      <div className='task-title'>
+        <h4>{reminder.text}</h4>
+      </div>
+      <div className='task-info'>
+        <h5>{new Date(reminder.createdAt).toLocaleString('en-US')}</h5>
+        <button onClick={() => dispatch(deleteReminder(reminder._id))} className='close'>
+          <FaTrashAlt />
+        </button>
+      </div>
+    </li>
+    
   )
 }
 

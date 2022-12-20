@@ -1,17 +1,22 @@
 import { useDispatch } from 'react-redux'
 import { deletePriority } from '../features/priorities/prioritySlice'
+import { FaTrashAlt } from 'react-icons/fa'
 
 function PriorityItem({ priority }) {
   const dispatch = useDispatch()
 
   return (
-    <div className='task'>
-      <div></div>
-      <h4>{priority.text} <span>{new Date(priority.createdAt).toLocaleString('en-US')}</span></h4>
-      <button onClick={() => dispatch(deletePriority(priority._id))} className='close'>
-        X
-      </button>
-    </div>
+    <li className='task'>
+      <div className='task-title'>
+        <h4>{priority.text}</h4>
+      </div>
+      <div className='task-info'>
+        <h5>{new Date(priority.createdAt).toLocaleString('en-US')}</h5>
+        <button onClick={() => dispatch(deletePriority(priority._id))} className='close'>
+          <FaTrashAlt />
+        </button>
+      </div>
+    </li>
   )
 }
 
