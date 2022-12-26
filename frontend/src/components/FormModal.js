@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import { MdClose } from "react-icons/md";
 import React, { useRef, useEffect, useCallback } from "react";
 import NoteForm from "./NoteForm";
 import PriorityForm from "./PriorityForm";
 import ReminderForm from "./ReminderForm";
 import TodoForm from "./TodoForm";
 import { AiFillCloseCircle } from "react-icons/ai";
+import Bounce from "react-reveal/Bounce";
 
 export const FormModal = ({ showModal, setShowModal }) => {
   const modalRef = useRef();
@@ -35,23 +34,23 @@ export const FormModal = ({ showModal, setShowModal }) => {
     <>
       {showModal ? (
         <div className="form-modal" onClick={closeModal} ref={modalRef}>
-          <div className="modal-container" showModal={showModal}>
-            <div className="modal-content">
-              <NoteForm />
-              <ReminderForm />
-              <TodoForm />
-              <PriorityForm />
-              <AiFillCloseCircle
-                className="modal-close-icon"
-                aria-label="Close modal"
-                onClick={() => setShowModal((prev) => !prev)}
-              />
+          <Bounce top>
+            <div className="modal-container" showModal={showModal}>
+              <div className="modal-content">
+                <NoteForm />
+                <ReminderForm />
+                <TodoForm />
+                <PriorityForm />
+                <AiFillCloseCircle
+                  className="modal-close-icon"
+                  aria-label="Close modal"
+                  onClick={() => setShowModal((prev) => !prev)}
+                />
+              </div>
             </div>
-          </div>
+          </Bounce>
         </div>
       ) : null}
     </>
   );
 };
-
-const CloseModalButton = styled(MdClose)``;

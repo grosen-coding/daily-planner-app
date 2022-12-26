@@ -1,4 +1,5 @@
 import { useEffect, useState} from 'react'
+import Zoom from 'react-reveal/Zoom';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import ReminderItem from '../components/ReminderItem'
@@ -11,12 +12,9 @@ import { getNotes } from '../features/notes/noteSlice'
 import { getPriorities } from '../features/priorities/prioritySlice'
 import { getReminders } from '../features/reminders/reminderSlice'
 import { getTodos } from '../features/todos/todoSlice'
-import { FormModal } from '../components/FormModal'
 
 
 function Dashboard() {
-  // Form Modal
-  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -66,8 +64,8 @@ function Dashboard() {
   return (
     <>
       <section className='tasks-container'>
-    <FormModal showModal={showModal} setShowModal={setShowModal} />
 {/* TOP PRIORITIES LIST */}
+      <Zoom>
         <div className='task-card'>
             <h2>Top Priorities</h2>
             {priorities.length > 0 ? (
@@ -80,7 +78,9 @@ function Dashboard() {
             <h3>You have not set any top priorities</h3>
           )}
         </div>
+      </Zoom>
 {/* REMINDERS LIST */}
+            <Zoom>
         <div className='task-card'>
           <h2>Reminders</h2>
           {reminders.length > 0 ? (
@@ -93,7 +93,9 @@ function Dashboard() {
             <h3>You have not set any reminders</h3>
           )}
         </div>
+        </Zoom>
 {/* TO DO LIST */}
+<Zoom>
         <div className='task-card'>
           <h2>To-do List</h2>
           {todos.length > 0 ? (
@@ -106,7 +108,9 @@ function Dashboard() {
             <h3>You have not set any to-dos</h3>
           )}
         </div>
+        </Zoom>
 {/* NOTES LIST */}
+<Zoom>
         <div className='task-card'>
           <h2>Notes</h2>
           {notes.length > 0 ? (
@@ -119,6 +123,7 @@ function Dashboard() {
             <h3>You have not set any notes</h3>
           )}
         </div>
+        </Zoom>
       </section>
     </>
   )
