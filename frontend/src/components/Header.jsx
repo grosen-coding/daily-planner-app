@@ -1,9 +1,20 @@
-import { FaPlusCircle, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
+import { useState } from 'react'
+import { FaPlusCircle, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
+import { FormModal } from './FormModal'
+
 
 function Header() {
+
+    const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
@@ -18,9 +29,12 @@ function Header() {
 
     <header className='header'>
       {user ? (
-            <button className='btn btn-add-task'>
-              <FaPlusCircle /> 
+          <>
+            <button className='btn btn-add-task'  onClick={openModal}>
+              <FaPlusCircle/> 
             </button>
+              <FormModal showModal={showModal} setShowModal={setShowModal} />
+          </>
         ) : (
           <>
             <div className='logo'>

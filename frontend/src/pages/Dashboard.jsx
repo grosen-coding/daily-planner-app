@@ -1,13 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import ReminderItem from '../components/ReminderItem'
-import ReminderForm from '../components/ReminderForm'
 import TodoItem from '../components/TodoItem'
-import TodoForm from '../components/TodoForm'
-import NoteForm from '../components/NoteForm'
 import NoteItem from '../components/NoteItem'
-import PriorityForm from '../components/PriorityForm'
 import PriorityItem from '../components/PriorityItem'
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
@@ -15,9 +11,13 @@ import { getNotes } from '../features/notes/noteSlice'
 import { getPriorities } from '../features/priorities/prioritySlice'
 import { getReminders } from '../features/reminders/reminderSlice'
 import { getTodos } from '../features/todos/todoSlice'
+import { FormModal } from '../components/FormModal'
 
 
 function Dashboard() {
+  // Form Modal
+  const [showModal, setShowModal] = useState(false);
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -66,10 +66,11 @@ function Dashboard() {
   return (
     <>
       <section className='tasks-container'>
+    <FormModal showModal={showModal} setShowModal={setShowModal} />
 {/* TOP PRIORITIES LIST */}
         <div className='task-card'>
             <h2>Top Priorities</h2>
-            <PriorityForm />
+            {/* <PriorityForm /> */}
             {priorities.length > 0 ? (
               <ul className='task-items'>
                 {priorities.map((priority) => (
@@ -83,7 +84,7 @@ function Dashboard() {
 {/* REMINDERS LIST */}
         <div className='task-card'>
           <h2>Reminders</h2>
-          <ReminderForm />
+          {/* <ReminderForm /> */}
           {reminders.length > 0 ? (
             <ul className='task-items'>
               {reminders.map((reminder) => (
@@ -91,13 +92,13 @@ function Dashboard() {
               ))}
             </ul>
           ) : (
-            <h3>You have not set any goals</h3>
+            <h3>You have not set any reminders</h3>
           )}
         </div>
 {/* TO DO LIST */}
         <div className='task-card'>
           <h2>To-do List</h2>
-          <TodoForm />
+          {/* <TodoForm /> */}
           {todos.length > 0 ? (
             <ul className='task-items'>
               {todos.map((todo) => (
@@ -111,7 +112,7 @@ function Dashboard() {
 {/* NOTES LIST */}
         <div className='task-card'>
           <h2>Notes</h2>
-          <NoteForm />
+          {/* <NoteForm /> */}
           {notes.length > 0 ? (
             <ul className='task-items'>
               {notes.map((note) => (
