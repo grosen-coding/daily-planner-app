@@ -41,12 +41,12 @@ export const FormModal = ({ showModal, setShowModal }) => {
               <ReminderForm />
               <TodoForm />
               <PriorityForm />
+              <AiFillCloseCircle
+                className="modal-close-icon"
+                aria-label="Close modal"
+                onClick={() => setShowModal((prev) => !prev)}
+              />
             </div>
-            <AiFillCloseCircle
-              className="modal-close-icon"
-              aria-label="Close modal"
-              onClick={() => setShowModal((prev) => !prev)}
-            />
           </div>
         </div>
       ) : null}
