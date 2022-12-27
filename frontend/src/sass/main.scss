@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;500&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/typography";
+
+@import "components/buttons";
+@import "components/forms";
+@import "components/items";
+@import "components/spinner";
+
+@import "layout/header";
+
+@import "pages/dashboard";
+@import "pages/login";
+@import "pages/register";
 
 body {
     font-family: 'Roboto Mono', monospace;
