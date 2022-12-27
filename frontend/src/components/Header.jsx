@@ -45,11 +45,14 @@ function Header() {
         )}
 
       {user ? (
+        <>
             <h1>{user.name}'s daily planner</h1>
+                    <h4><HeaderDate></HeaderDate></h4>
+                    </>
         ) : (
           <h1>your daily planner</h1>
         )}
-        <h4><HeaderDate></HeaderDate></h4>
+
 
       <ul>
         {user ? (
