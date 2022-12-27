@@ -61,7 +61,7 @@ h4 {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 90%;
     height: 90px;
     padding: 20px 0;
     border-bottom: 1px solid #e6e6e6;
@@ -85,7 +85,8 @@ h4 {
 
 /* TASKS CONTAINER */
 .tasks-container {
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
     height: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
