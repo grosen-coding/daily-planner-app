@@ -1,0 +1,47 @@
+/* TASK LISTS */
+.task {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    background-color: $color-light;
+    border-bottom: $color-grey-light solid 1px;
+    
+    &-title {
+    width: 65%;
+
+    h4 {
+        @include respond(laptop) {
+                font-size: .8rem;
+                // letter-spacing: 0.1px;
+                width: 60%;
+            }
+
+            @include respond(tab-port) {
+                font-size: .9rem;
+            }
+
+    }
+}}
+
+.task-info {
+    width: 35%;
+    letter-spacing: .1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(laptop) {
+            width: 40%;
+        }
+}
+
+.task-info h5 {
+    font-size: .6rem;
+
+     
+}
+
+
+

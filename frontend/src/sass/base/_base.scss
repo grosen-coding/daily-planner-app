@@ -3,7 +3,7 @@
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html {
@@ -11,37 +11,46 @@ html {
     scroll-behavior: smooth;
 
     @include respond(big-desktop) {
-        font-size: 75%;
+        font-size: 100%;
     }
 
     @include respond(laptop) {
-        font-size: 60%;
+        font-size: 80%;
     }
 
     @include respond(tab-land) {
-        font-size: 55%;
+        font-size: 75%;
     }
 
     @include respond(tab-port) {
-        font-size: 50%;
+        font-size: 70%;
     }
 }
 
 body {
+    font-family: 'Roboto Mono', monospace;
+    height: fit-content;
+    overflow: hidden;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    padding: 3rem;
 
     @include respond(tab-land) {
         padding: 0;
     }
 }
 
-a {
-    text-decoration: none;
+/* MAIN CONTAINER */
+.container {
+    width: 100%;
+    color: $color-burgundy;
+    background-color: $color-purple-light;
+    max-width: 1800px;
+    margin: auto;
+    padding: 0 20px;
+    text-align: center;
+    height: 100vh;
+    // border-radius: 10px;
 }
 
-::selection {
-    background-color: $color-primary;
-    color: #fff;
+a {
+    text-decoration: none;
 }

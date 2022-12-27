@@ -1,0 +1,24 @@
+/* LOGIN PAGE */
+.login-container {
+    margin: 50px auto;
+    width: 50%;
+
+}
+
+.login-heading {
+    padding: 30px;
+    font-size: 1.2rem;
+}
+
+.login-heading h1 {
+    margin: 40px 0;
+    font-weight: 600;
+}
+
+.login-register span {
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid $color-burgundy;
+
+}

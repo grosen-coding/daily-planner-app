@@ -1,0 +1,51 @@
+/* HEADER */
+.header {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 90px;
+    padding: 20px 0;
+    border-bottom: 1px solid $color-light;
+
+    @include respond(laptop) {
+            width: 100%;
+        }
+
+        h1 {
+            @include respond(tab-port) {
+                    font-size: 1.5rem;
+                }
+        }
+
+        h4 {
+
+            strong {
+                font-weight: 600;
+            }
+            @include respond(tab-port) {
+                    font-size: .9rem;
+                }
+        }
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.header ul li {
+    margin-left: 20px;
+
+    @include respond(tab-port) {
+                margin-left: 0px;
+        }
+}
+
+.header ul li a {
+    display: flex;
+    align-items: center;
+}

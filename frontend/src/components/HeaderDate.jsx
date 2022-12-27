@@ -14,11 +14,11 @@ export const HeaderDate = () => {
     });
 
     return(
-        <div>
-            <p> Today's Date : {newDate.toLocaleDateString()}</p>
-            <p> Current Time : {newDate.toLocaleTimeString()}</p>
+        <>
+            <p> <strong>Today's Date :</strong> {newDate.toLocaleDateString()}</p>
+            <p> <strong>Current Time :</strong> {newDate.toLocaleTimeString()}</p>
 
-        </div>
+        </>
     )
 }
 

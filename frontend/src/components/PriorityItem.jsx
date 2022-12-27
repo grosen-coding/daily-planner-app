@@ -12,7 +12,7 @@ function PriorityItem({ priority }) {
       </div>
       <div className='task-info'>
         <h5>{new Date(priority.createdAt).toLocaleString('en-US')}</h5>
-        <button onClick={() => dispatch(deletePriority(priority._id))} className='close'>
+        <button onClick={() => dispatch(deletePriority(priority._id))} className='close' alt="delete item">
           <FaTrashAlt />
         </button>
       </div>
