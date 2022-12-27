@@ -1,5 +1,5 @@
 import { useEffect, useState} from 'react'
-import Zoom from 'react-reveal/Zoom';
+// import Zoom from 'react-reveal/Zoom';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import ReminderItem from '../components/ReminderItem'
@@ -65,7 +65,7 @@ function Dashboard() {
     <>
       <section className='tasks-container'>
 {/* TOP PRIORITIES LIST */}
-      <Zoom>
+      {/* <Zoom> */}
         <div className='task-card'>
             <h2>Top Priorities</h2>
             {priorities.length > 0 ? (
@@ -78,9 +78,9 @@ function Dashboard() {
             <h3>You have not set any top priorities</h3>
           )}
         </div>
-      </Zoom>
+      {/* </Zoom> */}
 {/* REMINDERS LIST */}
-            <Zoom>
+            {/* <Zoom> */}
         <div className='task-card'>
           <h2>Reminders</h2>
           {reminders.length > 0 ? (
@@ -93,9 +93,9 @@ function Dashboard() {
             <h3>You have not set any reminders</h3>
           )}
         </div>
-        </Zoom>
+        {/* </Zoom> */}
 {/* TO DO LIST */}
-<Zoom>
+{/* <Zoom> */}
         <div className='task-card'>
           <h2>To-do List</h2>
           {todos.length > 0 ? (
@@ -108,9 +108,9 @@ function Dashboard() {
             <h3>You have not set any to-dos</h3>
           )}
         </div>
-        </Zoom>
+        {/* </Zoom> */}
 {/* NOTES LIST */}
-<Zoom>
+{/* <Zoom> */}
         <div className='task-card'>
           <h2>Notes</h2>
           {notes.length > 0 ? (
@@ -123,7 +123,7 @@ function Dashboard() {
             <h3>You have not set any notes</h3>
           )}
         </div>
-        </Zoom>
+        {/* </Zoom> */}
       </section>
     </>
   )
