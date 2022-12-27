@@ -32,6 +32,12 @@
         @include respond(laptop) {
                 width: 60%;
             }
+        
+                                        @include respond(phone) {
+                                            width: 90%;
+                                        }
+
+                        
 }
 
 .modal-content {
