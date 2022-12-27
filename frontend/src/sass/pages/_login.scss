@@ -4,15 +4,17 @@
     width: 50%;
     height: 100vh;
 
-                    @include respond(phone) {
-                            width: 90%;
-                            height: 100vh;
-                            display: flex;
-                            flex-direction: column;
-                            // justify-content: center;
-                            align-items: center;
-                        }
+    @include respond(phone) {
+        width: 90%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    p {
+        line-height: 1.4;
+    }
 }
 
 .login-heading {
@@ -23,6 +25,10 @@
 .login-heading h1 {
     margin: 40px 0;
     font-weight: 600;
+
+        @include respond(phone) {
+                margin: 20px;
+            }
 }
 
 .login-register span {
