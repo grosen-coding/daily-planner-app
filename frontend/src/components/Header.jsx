@@ -29,57 +29,61 @@ function Header() {
   return (
 
     <header className='header'>
-      {user ? (
-          <>
-            <button className='btn btn-add-task'  onClick={openModal}>
-              <FaPlusCircle/> 
-            </button>
-              <FormModal showModal={showModal} setShowModal={setShowModal} />
-          </>
-        ) : (
-          <>
-            <div className='logo'>
-              <Link to='/'>Retro Daily Planner</Link>
-            </div>
-          </>
-        )}
-
-      {user ? (
-        <>
-            <h1>{user.name}'s daily planner</h1>
-                    <h4><HeaderDate></HeaderDate></h4>
-                    </>
-        ) : (
-          <h1>your daily planner</h1>
-        )}
-
-
-      <ul>
+      <div className='header-left'>
         {user ? (
-          <li>
-            <button className='btn btn-header' onClick={onLogout}>
-              <FaUser /> Logout
-            </button>
-          </li>
+            <>
+              <button className='btn-add-task'  onClick={openModal}>
+                <FaPlusCircle/> 
+              </button>
+                <FormModal showModal={showModal} setShowModal={setShowModal} />
+            </>
+          ) : (
+              <div className='header-logo'>
+                <Link to='/'>Retro Daily Planner</Link>
+              </div>
+          )}
+      </div>
+
+
+      {user ? (
+        <div className='header-title'>
+            <h1>{user.name}'s daily planner</h1>
+            <h4><HeaderDate></HeaderDate></h4>
+        </div>
         ) : (
-          <>
-            <li>
-              <Link to='/login'>
-                <button className="btn btn-header">
-                Login
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to='/register'>
-                <button className="btn btn-header">
-                Register
-                </button>
-              </Link>
-            </li>
-          </>
+          <div className='header-title'>
+            <h1>your daily planner</h1>
+          </div>
         )}
-      </ul>
+
+      <div className='header-right'>
+        <ul>
+          {user ? (
+            <li>
+              <button className='btn btn-header' onClick={onLogout}>
+                <FaUser /> Logout
+              </button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link to='/login'>
+                  <button className="btn btn-header">
+                  Login
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to='/register'>
+                  <button className="btn btn-header">
+                  Register
+                  </button>
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </header>
   )
 }

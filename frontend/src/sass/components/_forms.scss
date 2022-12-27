@@ -12,6 +12,10 @@
     border-radius: 10px;
     margin-top: 10px;
     border: 1px solid $color-grey-light;
+
+        @include respond(phone) {
+                padding: 10px;
+            }
 }
 
 .task-form-header {
@@ -78,6 +82,13 @@
     text-align: left;
     display: block;
     margin: 0 0 5px 3px;
+}
+
+input::placeholder {
+        @include respond(phone) {
+            font-size: .7rem;
+        }
+
 }
 
 .task-input {

@@ -1,7 +1,6 @@
 const asyncHandler = require("express-async-handler");
 
 const Note = require("../models/noteModel");
-const User = require("../models/userModel");
 
 // @desc    Get notes
 // @route   GET /api/notes

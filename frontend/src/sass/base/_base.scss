@@ -15,21 +15,21 @@ html {
     }
 
     @include respond(laptop) {
-        font-size: 80%;
+        font-size: 85%;
     }
 
     @include respond(tab-land) {
-        font-size: 75%;
+        font-size: 85%;
     }
 
     @include respond(tab-port) {
-        font-size: 70%;
+        font-size: 80%;
     }
 }
 
 body {
     font-family: 'Roboto Mono', monospace;
-    height: fit-content;
+    height: 100vh;
     // overflow: hidden;
     box-sizing: border-box;
 
@@ -41,14 +41,18 @@ body {
 /* MAIN CONTAINER */
 .container {
     width: 100%;
+    height: 100%;
     color: $color-burgundy;
     background-color: $color-purple-light;
     max-width: 1800px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 20px;
     text-align: center;
-    height: 100%;
     // border-radius: 10px;
+
+            @include respond(phone) {
+                    padding: 0;
+                }
 }
 
 a {

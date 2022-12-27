@@ -2,7 +2,7 @@
 .tasks-container {
     margin: 0 auto;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -16,14 +16,21 @@
         @include respond(tab-port) {
                 display: flex;
                 flex-direction: column;
+                height: 100%;
             }
+
+        @include respond(phone) {
+            padding: 10px;
+            }
+
 }
 
 
 /* TASK CARDS */
 .task-card {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    max-height: fit-content;
     background-color: $color-light;
     /* margin: 5px auto; */
     border: 2px solid $color-burgundy;

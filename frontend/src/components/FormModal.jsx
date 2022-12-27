@@ -37,10 +37,10 @@ export const FormModal = ({ showModal, setShowModal }) => {
           {/* <Bounce top> */}
           <div className="modal-container" showModal={showModal}>
             <div className="modal-content">
-              <NoteForm />
+              <PriorityForm />
               <ReminderForm />
               <TodoForm />
-              <PriorityForm />
+              <NoteForm />
               <AiFillCloseCircle
                 className="modal-close-icon"
                 aria-label="Close modal"

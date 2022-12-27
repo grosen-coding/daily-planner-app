@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react'
+import { useEffect} from 'react'
 // import Zoom from 'react-reveal/Zoom';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -61,13 +61,17 @@ function Dashboard() {
     return <Spinner />
   }
 
+  const priorityList = priorities.length
+
+
   return (
     <>
       <section className='tasks-container'>
 {/* TOP PRIORITIES LIST */}
       {/* <Zoom> */}
         <div className='task-card'>
-            <h2>Top Priorities</h2>
+            <h2>Top Priorities ({priorityList})</h2>
+
             {priorities.length > 0 ? (
               <ul className='task-items'>
                 {priorities.map((priority) => (
@@ -77,12 +81,13 @@ function Dashboard() {
           ) : (
             <h3>You have not set any top priorities</h3>
           )}
+
         </div>
       {/* </Zoom> */}
 {/* REMINDERS LIST */}
             {/* <Zoom> */}
         <div className='task-card'>
-          <h2>Reminders</h2>
+          <h2>Reminders ({reminders.length})</h2>
           {reminders.length > 0 ? (
             <ul className='task-items'>
               {reminders.map((reminder) => (
@@ -97,7 +102,7 @@ function Dashboard() {
 {/* TO DO LIST */}
 {/* <Zoom> */}
         <div className='task-card'>
-          <h2>To-do List</h2>
+          <h2>To-do List ({todos.length})</h2>
           {todos.length > 0 ? (
             <ul className='task-items'>
               {todos.map((todo) => (
@@ -112,7 +117,7 @@ function Dashboard() {
 {/* NOTES LIST */}
 {/* <Zoom> */}
         <div className='task-card'>
-          <h2>Notes</h2>
+          <h2>Notes ({notes.length})</h2>
           {notes.length > 0 ? (
             <ul className='task-items'>
               {notes.map((note) => (

@@ -13,6 +13,11 @@
     align-items: center;
     z-index: 11;
 
+        @include respond(phone) {
+                height: 100vh;
+
+            }
+
 }
 
 .modal-container {
@@ -33,9 +38,9 @@
                 width: 60%;
             }
         
-                                        @include respond(phone) {
-                                            width: 90%;
-                                        }
+        @include respond(phone) {
+         width: 90%;
+        }
 
                         
 }
